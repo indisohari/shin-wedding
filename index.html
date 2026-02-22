@@ -99,10 +99,12 @@
     /* [P1 개선] 모달 및 토스트 UX */
     .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
     .modal-img { max-width: 100%; max-height: 90%; }
-    .modal-close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 40px; cursor: pointer; font-weight: 300; z-index: 2001; }
+    /* [개선] 모달 닫기 버튼의 터치 영역 확대 */
+.modal-close { position: absolute; top: 15px; right: 15px; color: #fff; font-size: 40px; cursor: pointer; font-weight: 300; z-index: 2001; padding: 15px; }
     
     /* [P2 개선] 토스트가 홈 인디케이터에 가려지지 않게 처리 */
-    .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(30px + env(safe-area-inset-bottom)); background: rgba(0,0,0,0.85); color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 13px; display: none; z-index: 3000; font-weight: 400; width: max-content; }
+    /* [개선] 토스트 알림 위치 상향 조정 및 시인성 개선 */
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(45px + env(safe-area-inset-bottom)); background: rgba(0,0,0,0.85); color: #fff; padding: 14px 28px; border-radius: 30px; font-size: 13.5px; display: none; z-index: 3000; font-weight: 400; width: max-content; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
     /* [P1 개선] 흑백 필터 로직 제거 (Active UX 이슈 방지). 대신 CSS 필터 상시 적용 */
     /* .main-photo, .gallery-img { filter: ... } 는 위쪽 정의 유지 */
@@ -359,12 +361,27 @@
       setTimeout(function () { el.style.display = "none"; }, 2000);
     }
 
-    function copyAddress(txt) { navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(txt).then(() => toast("주소가 복사되었습니다")).catch(() => fallbackCopyAddress(txt)) : fallbackCopyAddress(txt); }
-    function fallbackCopyAddress(txt) { var t = document.createElement('textarea'); t.value = txt; t.style.position = 'fixed'; t.style.left = '-9999px'; document.body.appendChild(t); t.focus(); t.select(); try { document.execCommand('copy'); toast("주소가 복사되었습니다"); } catch(e) { toast("복사에 실패했습니다"); } document.body.removeChild(t); }
-    
-    function copyTextDirect(txt) { navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(txt).then(() => toast("계좌번호가 복사되었습니다")).catch(() => fallbackCopyText(txt)) : fallbackCopyText(txt); }
-    function fallbackCopyText(txt) { var t = document.createElement('textarea'); t.value = txt; t.style.position = 'fixed'; t.style.left = '-9999px'; document.body.appendChild(t); t.focus(); t.select(); try { document.execCommand('copy'); toast("계좌번호가 복사되었습니다"); } catch(e) { toast("복사에 실패했습니다"); } document.body.removeChild(t); }
+   // [개선] 통합된 텍스트 복사 함수
+function copyToClipboard(txt, msg) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt).then(() => toast(msg)).catch(() => fallbackCopy(txt, msg));
+  } else {
+    fallbackCopy(txt, msg);
+  }
+}
+function fallbackCopy(txt, msg) {
+  var t = document.createElement('textarea'); t.value = txt; 
+  t.style.position = 'fixed'; t.style.left = '-9999px'; 
+  document.body.appendChild(t); t.focus(); t.select(); 
+  try { document.execCommand('copy'); toast(msg); } 
+  catch(e) { toast("복사에 실패했습니다"); } 
+  document.body.removeChild(t);
+}
 
+// [NEW] 링크 복사 전용 함수 (나중에 쓸 수 있도록 미리 추가)
+function copyPageLink() {
+  copyToClipboard(window.location.href, '청첩장 링크가 복사되었습니다');
+}
     function submitRsvp() {
       var name = document.getElementById("name").value.trim();
       var phone = document.getElementById("phone").value.trim();
@@ -412,7 +429,8 @@
       var gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(EVENT.title) + "&dates=" + EVENT.startISO + "/" + EVENT.endISO + "&location=" + encodeURIComponent(EVENT.locationName) + "&ctz=Asia/Seoul";
       document.getElementById("gcalLink").href = gcal;
       var icsData = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nSUMMARY:" + EVENT.title + "\r\nDTSTART:" + EVENT.startISO + "\r\nDTEND:" + EVENT.endISO + "\r\nLOCATION:" + EVENT.locationName + "\r\nEND:VEVENT\r\nEND:VCALENDAR";
-      var blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
+    // [개선] ICS 파일 한글 깨짐 방지 (BOM 추가)
+var blob = new Blob(["\uFEFF" + icsData], { type: "text/calendar;charset=utf-8" });
       document.getElementById("icsLink").href = URL.createObjectURL(blob);
       document.getElementById("icsLink").download = "wedding.ics";
     }
