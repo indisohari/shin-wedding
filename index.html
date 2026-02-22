@@ -22,7 +22,17 @@
       --section-gray: #f7f8f9; 
     }
     
-    html, body { margin: 0; padding: 0; width: 100%; background: #f0f0f0; font-family: 'Noto Sans KR', sans-serif; color: var(--text-main); -webkit-font-smoothing: antialiased; letter-spacing: -0.3px; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #f0f0f0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.3px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
     body { padding-bottom: env(safe-area-inset-bottom); }
 
     .wrap { max-width: 500px; margin: 0 auto; background: #fff; box-shadow: 0 0 40px rgba(0,0,0,0.05); min-height: 100vh; overflow: hidden; }
@@ -43,8 +53,14 @@
     .hero { padding: 0 0 50px; background: #fff; }
     .hero-text-area { padding-top: 80px; padding-bottom: 40px; animation: fadeUpLoad 1.2s ease-out forwards; opacity: 0; }
     .date-text { font-size: 15px; letter-spacing: 4px; color: var(--accent); margin-bottom: 18px; font-weight: 700; }
-    .names { font-size: 28px; margin-bottom: 12px; letter-spacing: 2px; line-height: 1.4; color: #111; font-weight: 400;}
-    
+.names {
+  font-size: clamp(25px, 5.6vw, 28px);
+  margin-bottom: 12px;
+  letter-spacing: clamp(0.8px, 0.35vw, 2px);
+  line-height: 1.4;
+  color: #111;
+  font-weight: 400;
+}    
     .main-photo-frame { width: 100%; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 12px; animation: fadeUpLoad 1.2s ease-out 0.3s forwards; opacity: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: zoom-in; }
     .main-photo { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 65%; filter: brightness(1.02) contrast(1.02) sepia(0.05) saturate(0.95); }
     .main-photo:active { transform: scale(1.01); }
@@ -59,9 +75,23 @@
     /* 2 & 3. INFO & LOCATION */
     .info-section { background: #fff; padding-top: 60px; padding-bottom: 30px; }
     .info-group { margin-bottom: 40px; }
-    .info-title { font-size: 21px; font-weight: 700; margin-bottom: 12px; color: #111; letter-spacing: 0.5px; }
-    .info-desc { font-size: 15.5px; color: var(--text-sub); font-weight: 400; margin-bottom: 20px; line-height: 1.6; word-break: keep-all; }
-    
+   .info-title {
+  font-size: clamp(19px, 4.5vw, 21px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+  letter-spacing: clamp(0px, 0.1vw, 0.5px);
+}
+
+.info-desc {
+  font-size: clamp(14.6px, 3.5vw, 15.5px);
+  color: var(--text-sub);
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.68;
+  word-break: keep-all;
+  letter-spacing: clamp(-0.2px, -0.02vw, 0px);
+} 
     .btn-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 400px; margin: 0 auto; }
     .btn-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; max-width: 400px; margin: 0 auto; }
     .btn { padding: 14px 0; border-radius: 8px; border: 1px solid #eaeaea; background: #fafafa; font-size: 14px; color: #333; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; font-weight: 500; font-family: 'Noto Sans KR'; transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -77,7 +107,15 @@
     .detail-title { font-size: 16.5px; font-weight: 700; color: #111; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
     
     /* [개선] 어르신 가독성을 위해 상세 설명 폰트 15px로 상향 */
-    .detail-desc { font-size: 15px; color: var(--text-sub); line-height: 1.7; word-break: keep-all; margin: 0; }
+.detail-desc {
+  font-size: clamp(14.3px, 3.35vw, 15px);
+  color: var(--text-sub);
+  line-height: 1.7;
+  word-break: keep-all;
+  margin: 0;
+  letter-spacing: clamp(-0.15px, -0.02vw, 0px);
+}
+
     .detail-desc b { color: #222; font-weight: 500; }
     
     /* [개선] 정류소 배지 폰트 13px로 상향 */
@@ -119,8 +157,17 @@
 
     /* 5. INVITATION */
     .poem-section { padding-top: 80px; padding-bottom: 60px; background: #fff; }
-    .poem-wrap { white-space: pre-line; line-height: 2.2; font-size: 16px; color: #333; word-break: keep-all; font-weight: 400; letter-spacing: 0.3px; }
-
+.poem-wrap {
+  white-space: pre-line;
+  line-height: 2.1;
+  font-size: clamp(15px, 3.65vw, 16px);
+  color: #333;
+  word-break: keep-all;
+  font-weight: 400;
+  letter-spacing: clamp(0px, 0.05vw, 0.3px);
+  max-width: 30ch;
+  margin: 0 auto;
+}
     /* 6. GALLERY */
     .gallery-section { padding-top: 40px; padding-bottom: 80px; background: #fff; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-radius: 8px; overflow: hidden; }
@@ -170,6 +217,68 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     } 
+/* ===== 줄바꿈/타이포 안정화 유틸 ===== */
+.balance {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+@supports (text-wrap: balance) {
+  .balance {
+    text-wrap: balance;
+  }
+}
+
+@supports (text-wrap: pretty) {
+  .pretty {
+    text-wrap: pretty;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* 문장 폭을 너무 넓게 쓰지 않도록 제한 (줄바꿈 일관성 개선) */
+.copy-narrow {
+  max-width: 28ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 초소형 기기(예: 320~360px) */
+@media (max-width: 360px) {
+  .wrap {
+    max-width: 100%;
+  }
+
+  section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .btn {
+    font-size: 13px;
+    gap: 4px;
+  }
+
+  .btn-grid-3 {
+    gap: 6px;
+  }
+
+  .poem-wrap {
+    max-width: 28ch;
+    line-height: 2.05;
+  }
+}
+
+/* 큰 폰(430px 이상)에서 너무 퍼져 보이지 않게 */
+@media (min-width: 430px) {
+  .poem-wrap {
+    max-width: 31ch;
+  }
+}
+
   </style>
 </head>
 
@@ -194,7 +303,9 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
       <span class="section-label-ko">언제 · 어디서</span>
       <div class="info-group">
         <div class="info-title font-serif">2026. 05. 23. 토요일 오후 6시 30분</div>
-        <div class="info-desc">예식장 입장은 오후 5시 45분부터 가능하며,<br>식사는 오후 6시부터 8시까지 제공됩니다.</div>
+<div class="info-desc balance copy-narrow">
+  예식장 입장은 오후 5시 45분부터 가능하며, 식사는 오후 6시부터 8시까지 제공됩니다.
+</div>
         <div class="btn-grid-2">
           <a id="gcalLink" class="btn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 22C17.5 22 22 17.5 22 12C22 11.1 21.9 10.2 21.7 9.4H12V13.5H17.7C17.5 14.9 16.6 16.1 15.3 17C14.4 17.6 13.2 18 12 18C8.7 18 6 15.3 6 12C6 8.7 8.7 6 12 6C13.6 6 15 6.6 16.1 7.6L19 4.8C17.2 3.1 14.8 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path></svg>구글 캘린더 등록</a>
           <a id="icsLink" class="btn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>휴대폰 캘린더 등록</a>
@@ -205,9 +316,10 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
       
       <div class="info-group" style="margin-bottom: 0;">
         <div class="info-title font-serif">남산예술원 예식장</div>
-        <div class="info-desc" style="margin-bottom: 18px;">
-          서울특별시 용산구 소월로 375 <span style="font-size: 14px; color: #888;">(한남동 726-157)</span>
-        </div>
+    <div class="info-desc balance copy-narrow" style="margin-bottom: 18px;">
+  서울특별시 용산구 소월로 375
+  <span style="font-size: 0.92em; color: #888;" class="nowrap">(한남동 726-157)</span>
+</div>
         <div class="btn-grid-3">
           <a id="naverNav" class="btn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 8V16L16 8V16"></path></svg>네이버지도</a>
           <button class="btn" onclick="copyToClipboard('서울특별시 용산구 소월로 375', '주소 복사 완료')"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>주소복사</button>
@@ -232,10 +344,10 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
 
       <div class="detail-group">
         <div class="detail-title">🚌 셔틀버스 안내</div>
-        <p class="detail-desc">
-          <b>6호선 한강진역 1번 출구 앞 탑승</b><br>
-          예식 1시간 전(오후 5시 30분)부터 10~15분 간격으로 운행합니다.
-        </p>
+       <p class="detail-desc balance">
+  <b>6호선 한강진역 1번 출구 앞 탑승</b><br>
+  예식 1시간 전(오후 5시 30분)부터 10~15분 간격으로 운행합니다.
+</p>
       </div>
 
       <div class="detail-group">
@@ -273,22 +385,17 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
           <p class="detail-desc" style="color: #333; font-weight: 500; font-size: 15.5px;">110B, 400, 405</p>
         </div>
 
-        <div class="bus-list" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
-          <p class="detail-desc" style="margin-bottom: 5px;"><b>🚌 서울중부기술교육원·블루스퀘어 하차 (도보 12분)</b></p>
-          <span class="stop-badge">정류소 03160, 03161</span>
-          <p class="detail-desc" style="color: #333; font-weight: 500; font-size: 15.5px;">142, 144, 402, 420, 3011, 6211</p>
-        </div>
       </div>
 
       <div class="notice-box">
         <p>📢 식장 이용 안내</p>
-     <p>
-  예식장 방침에 따라 <b class="notice-strong">화환 반입이 불가하며</b>,<br>
+     <p class="balance">
+  예식장 방침에 따라 <b class="notice-strong">화환 반입이 불가하며</b>,
   원활한 입장 안내를 위해 <b class="notice-strong">청첩장 확인</b>이 필요합니다.
 </p>
-<p style="margin-top: 18px;">
-  예식장 내부와 인근에는<br>
-  <b class="notice-strong">현금인출기(ATM)가 없으니</b> 참고 부탁드립니다.
+<p class="balance" style="margin-top: 18px;">
+  예식장 내부와 인근에는 <b class="notice-strong"><span class="nowrap">현금인출기(ATM)</span>가 없으니</b>
+  참고 부탁드립니다.
 </p>
       </div>
     </section>
@@ -419,170 +526,215 @@ appearance: none; position: absolute; top: 15px; right: 15px; color: #fff; font-
   <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
 
   <script>
-    var EVENT = { title: "신지연·신동윤 결혼식", startISO: "20260523T183000", endISO: "20260523T203000", locationName: "남산예술원 예식장", address: "서울특별시 용산구 소월로 375" };
+var EVENT = {
+  title: "신지연·신동윤 결혼식",
+  startISO: "20260523T183000",
+  endISO: "20260523T203000",
+  locationName: "남산예술원 예식장",
+  address: "서울특별시 용산구 소월로 375"
+};
 
-    document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById('guestSide').addEventListener('change', function() { this.style.color = '#111'; });
-      document.getElementById('guestCount').addEventListener('change', function() { this.style.color = '#111'; });
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("guestSide").addEventListener("change", function() {
+    this.style.color = "#111";
+  });
+  document.getElementById("guestCount").addEventListener("change", function() {
+    this.style.color = "#111";
+  });
 
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") { closeModal(); }
-      });
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+  });
 
-      var fadeEls = document.querySelectorAll('.fade-in');
-      if (!("IntersectionObserver" in window)) {
-        for (var i = 0; i < fadeEls.length; i++) {
-          fadeEls[i].classList.add("visible");
-        }
-      } else {
-        var observer = new IntersectionObserver(function(entries) {
-          for (var j = 0; j < entries.length; j++) {
-            if (entries[j].isIntersecting) { 
-              entries[j].target.classList.add("visible"); 
-              // [개선] 애니메이션 실행 후 옵저버 해제 (성능 최적화)
-              observer.unobserve(entries[j].target);
-            }
-          }
-        }, { threshold: 0.1 });
-        
-        for (var k = 0; k < fadeEls.length; k++) {
-          observer.observe(fadeEls[k]);
+  var fadeEls = document.querySelectorAll(".fade-in");
+  if (!("IntersectionObserver" in window)) {
+    for (var i = 0; i < fadeEls.length; i++) {
+      fadeEls[i].classList.add("visible");
+    }
+  } else {
+    var observer = new IntersectionObserver(function(entries) {
+      for (var j = 0; j < entries.length; j++) {
+        if (entries[j].isIntersecting) {
+          entries[j].target.classList.add("visible");
+          observer.unobserve(entries[j].target);
         }
       }
-      
-      initLinks();
-    });
+    }, { threshold: 0.1 });
 
-    document.getElementById('name').addEventListener('input', function(e) {
-      e.target.value = e.target.value.replace(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z\s\-\.]/g, '');
-    });
-
-    document.getElementById('phone').addEventListener('input', function (e) {
-      var val = e.target.value.replace(/[^0-9]/g, '');
-      var result = '';
-      if (val.length < 4) { result = val; }
-      else if (val.length < 7) { result = val.substr(0, 3) + '-' + val.substr(3); }
-      else if (val.length < 11) { result = val.substr(0, 3) + '-' + val.substr(3, 3) + '-' + val.substr(6); }
-      else { result = val.substr(0, 3) + '-' + val.substr(3, 4) + '-' + val.substr(7); }
-      e.target.value = result;
-    });
-
-    var toastTimer;
-    function toast(msg) {
-      var el = document.getElementById("toast");
-      el.textContent = msg;
-      el.classList.add("show");
-      
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(function () { el.classList.remove("show"); }, 2500);
+    for (var k = 0; k < fadeEls.length; k++) {
+      observer.observe(fadeEls[k]);
     }
+  }
 
-    function copyToClipboard(txt, msg) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(txt)
-          .then(function() { toast(msg); })
-          .catch(function() { fallbackCopy(txt, msg); });
-      } else {
-        fallbackCopy(txt, msg);
-      }
-    }
-    
-    function fallbackCopy(txt, msg) {
-      var t = document.createElement('textarea'); 
-      t.value = txt; 
-      t.style.position = 'fixed'; 
-      t.style.left = '-9999px'; 
-      document.body.appendChild(t); 
-      t.focus(); 
-      t.select(); 
-      try { document.execCommand('copy'); toast(msg); } 
-      catch(e) { toast("복사에 실패했습니다"); } 
-      document.body.removeChild(t);
-    }
+  initLinks();
 
-    function copyPageLink() {
-      copyToClipboard(window.location.href, '청첩장 링크 복사 완료');
-    }
-    
-    function submitRsvp() {
-      var sideSelect = document.getElementById("guestSide");
-      var side = sideSelect.value;
-      var name = document.getElementById("name").value.trim();
-      var phone = document.getElementById("phone").value.trim();
-      var countSelect = document.getElementById("guestCount");
-      var count = countSelect.value;
-      var btn = document.getElementById("submitBtn");
-      var phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+  // ✅ 여기서 바인딩
+  var icsBtn = document.getElementById("icsLink");
+  if (icsBtn) {
+    icsBtn.addEventListener("click", handleIcsClick);
+  }
+});
 
-      if (!side) return toast("참석 구분을 선택해 주세요");
-      if (name.length < 1) return toast("성함을 입력해 주세요");
-      if (!phoneRegex.test(phone)) return toast("연락처를 정확히 입력해 주세요");
-      if (!count) return toast("참석 인원을 선택해 주세요");
+document.getElementById("name").addEventListener("input", function(e) {
+  e.target.value = e.target.value.replace(/[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z\s\-\.]/g, "");
+});
 
-      btn.disabled = true; 
-      btn.textContent = "전송 중...";
+document.getElementById("phone").addEventListener("input", function(e) {
+  var val = e.target.value.replace(/[^0-9]/g, "");
+  var result = "";
+  if (val.length < 4) result = val;
+  else if (val.length < 7) result = val.substr(0, 3) + "-" + val.substr(3);
+  else if (val.length < 11) result = val.substr(0, 3) + "-" + val.substr(3, 3) + "-" + val.substr(6);
+  else result = val.substr(0, 3) + "-" + val.substr(3, 4) + "-" + val.substr(7);
+  e.target.value = result;
+});
 
-      var guestCountLabel = countSelect.options[countSelect.selectedIndex].text;
-      
-      var scriptUrl = "https://script.google.com/macros/s/AKfycbwbdYeAJQ9AWCJH89Y3enM91-AzcLg1sRONhmfINcAxxHTas852KtV5EMcWkqFZCJjm-Q/exec"; 
+var toastTimer;
+function toast(msg) {
+  var el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function() {
+    el.classList.remove("show");
+  }, 2500);
+}
 
-      fetch(scriptUrl, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ 
-          side: side,
-          name: name, 
-          phone: phone, 
-          guestCount: count, 
-          guestCountLabel: guestCountLabel 
-        })
-      })
-      .then(function(response) {
-        // [개선] 따뜻하고 부드러운 토스트 알림으로 변경
-        toast("감사합니다! 참석 정보가 전송되었습니다");
-        
-        sideSelect.value = "";
-        sideSelect.style.color = '#aaa';
-        document.getElementById("name").value = "";
-        document.getElementById("phone").value = "";
-        countSelect.value = "";
-        countSelect.style.color = '#aaa';
-      })
-      .catch(function(error) {
-        alert("오류가 발생했습니다: " + error);
-      })
-      .finally(function() {
-        btn.disabled = false; 
-        btn.textContent = "참석 정보 전달하기";
-      });
-    }
+function copyToClipboard(txt, msg) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(txt)
+      .then(function() { toast(msg); })
+      .catch(function() { fallbackCopy(txt, msg); });
+  } else {
+    fallbackCopy(txt, msg);
+  }
+}
 
-    function initLinks() {
-      var navQuery = encodeURIComponent(EVENT.locationName + " " + EVENT.address);
-      document.getElementById("kakaoNav").href = "https://map.kakao.com/link/search/" + navQuery;
-      document.getElementById("naverNav").href = "https://map.naver.com/v5/search/" + navQuery;
-      
-      var gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(EVENT.title) + "&dates=" + EVENT.startISO + "/" + EVENT.endISO + "&location=" + encodeURIComponent(EVENT.locationName) + "&ctz=Asia/Seoul";
-      document.getElementById("gcalLink").href = gcal;
-      
-      var icsData = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nSUMMARY:" + EVENT.title + "\r\nDTSTART:" + EVENT.startISO + "\r\nDTEND:" + EVENT.endISO + "\r\nLOCATION:" + EVENT.locationName + "\r\nEND:VEVENT\r\nEND:VCALENDAR";
-      var blob = new Blob(["\uFEFF" + icsData], { type: "text/calendar;charset=utf-8" });
-      document.getElementById("icsLink").href = URL.createObjectURL(blob);
-      document.getElementById("icsLink").download = "wedding.ics";
-    }
+function fallbackCopy(txt, msg) {
+  var t = document.createElement("textarea");
+  t.value = txt;
+  t.style.position = "fixed";
+  t.style.left = "-9999px";
+  document.body.appendChild(t);
+  t.focus();
+  t.select();
+  try {
+    document.execCommand("copy");
+    toast(msg);
+  } catch (e) {
+    toast("복사에 실패했습니다");
+  }
+  document.body.removeChild(t);
+}
 
-    var prevBodyOverflow = "";
-    function openModal(src) {
-      document.getElementById("imageModal").style.display = "flex";
-      document.getElementById("fullImage").src = src;
-      prevBodyOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-    }
-    function closeModal() {
-      document.getElementById("imageModal").style.display = "none";
-      document.body.style.overflow = prevBodyOverflow;
-    }
+function copyPageLink() {
+  copyToClipboard(window.location.href, "청첩장 링크 복사 완료");
+}
+
+function submitRsvp() {
+  var sideSelect = document.getElementById("guestSide");
+  var side = sideSelect.value;
+  var name = document.getElementById("name").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+  var countSelect = document.getElementById("guestCount");
+  var count = countSelect.value;
+  var btn = document.getElementById("submitBtn");
+  var phoneRegex = /^01[016789]-\d{3,4}-\d{4}$/;
+
+  if (!side) return toast("참석 구분을 선택해 주세요");
+  if (!name) return toast("성함을 입력해 주세요");
+  if (!phoneRegex.test(phone)) return toast("연락처를 정확히 입력해 주세요");
+  if (!count) return toast("참석 인원을 선택해 주세요");
+
+  btn.disabled = true;
+  btn.textContent = "전송 중...";
+
+  var guestCountLabel = countSelect.options[countSelect.selectedIndex].text;
+  var scriptUrl = "https://script.google.com/macros/s/AKfycbwbdYeAJQ9AWCJH89Y3enM91-AzcLg1sRONhmfINcAxxHTas852KtV5EMcWkqFZCJjm-Q/exec";
+
+  fetch(scriptUrl, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({
+      side: side,
+      name: name,
+      phone: phone,
+      guestCount: count,
+      guestCountLabel: guestCountLabel
+    })
+  })
+  .then(function() {
+    toast("감사합니다! 참석 정보가 전송되었습니다");
+    sideSelect.value = "";
+    sideSelect.style.color = "#aaa";
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    countSelect.value = "";
+    countSelect.style.color = "#aaa";
+  })
+  .catch(function(error) {
+    alert("오류가 발생했습니다: " + error);
+  })
+  .finally(function() {
+    btn.disabled = false;
+    btn.textContent = "참석 정보 전달하기";
+  });
+}
+
+function initLinks() {
+  // 지도 검색어 단순화 (안정화)
+  var mapKeyword = encodeURIComponent("남산예술원 웨딩홀");
+  document.getElementById("kakaoNav").href = "https://map.kakao.com/link/search/" + mapKeyword;
+  document.getElementById("naverNav").href = "https://map.naver.com/v5/search/" + mapKeyword;
+
+  // 구글 캘린더
+  var gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text=" + encodeURIComponent(EVENT.title)
+    + "&dates=" + EVENT.startISO + "/" + EVENT.endISO
+    + "&location=" + encodeURIComponent(EVENT.locationName)
+    + "&ctz=Asia/Seoul";
+  document.getElementById("gcalLink").href = gcal;
+
+  // 휴대폰 캘린더 (정적 ICS 파일)
+  var icsLink = document.getElementById("icsLink");
+  icsLink.href = "https://indisohari.github.io/invitation-v2/wedding.ics";
+  icsLink.removeAttribute("download");
+}
+
+var prevBodyOverflow = "";
+function openModal(src) {
+  document.getElementById("imageModal").style.display = "flex";
+  document.getElementById("fullImage").src = src;
+  prevBodyOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+  document.body.style.overflow = prevBodyOverflow;
+}
+
+function isIOS() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+function isKakaoInApp() {
+  return /KAKAOTALK/i.test(navigator.userAgent);
+}
+function isOtherInAppBrowser() {
+  return /(FBAN|FBAV|Instagram|NAVER|Line|Whale)/i.test(navigator.userAgent);
+}
+
+function handleIcsClick(e) {
+  if (isIOS() && (isKakaoInApp() || isOtherInAppBrowser())) {
+    e.preventDefault();
+    toast("카카오톡에서는 캘린더 등록이 제한될 수 있어요. 우측 상단 메뉴에서 Safari로 열기 후 다시 눌러주세요.");
+    return;
+  }
+
+  if (!isIOS() && (isKakaoInApp() || isOtherInAppBrowser())) {
+    toast("인앱브라우저에서는 동작이 불안정할 수 있어요. 필요하면 외부 브라우저로 열어주세요.");
+  }
+}
   </script>
 </body>
 </html>
