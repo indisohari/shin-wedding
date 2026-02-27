@@ -20,13 +20,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
   <style>
-/* 영문 필기체 폰트 불러오기 */
-    @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
-
-    /* 8. CALENDAR SECTION (종이청첩장 3페이지 구현) */
+/* 8. CALENDAR SECTION (영문 캘리그라피 제거 버전) */
     .calendar-section {
       position: relative;
-      padding: 80px 25px 70px;
+      padding: 70px 25px 60px; /* 위아래 여백 살짝 조절 */
       background: #fff;
       overflow: hidden;
       text-align: center;
@@ -35,29 +32,16 @@
     /* 배경 워터마크 "05" */
     .watermark-05 {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 260px;
+      font-size: 280px; /* 영문이 빠져서 공간이 넓어졌으니 살짝 더 키웁니다 */
       font-family: 'Nanum Myeongjo', serif;
-      color: rgba(0, 0, 0, 0.03); /* 아주 연한 회색 */
+      color: rgba(0, 0, 0, 0.03); 
       font-weight: 700;
       z-index: 1;
       line-height: 1;
       pointer-events: none;
-    }
-
-    /* We are getting married 필기체 */
-    .we-are-getting-married {
-      font-family: 'Alex Brush', cursive;
-      font-size: 46px;
-      color: #222;
-      position: relative;
-      z-index: 2;
-      margin-bottom: 45px;
-      line-height: 1.1;
-      transform: rotate(-4deg); /* 종이청첩장처럼 살짝 기울임 */
-      letter-spacing: 1px;
     }
 
     /* 달력 그리드 */
@@ -72,20 +56,20 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
-      margin-bottom: 15px;
-      font-size: 11px;
+      margin-bottom: 20px;
+      font-size: 11.5px;
       color: #888;
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
     
-    .cal-header div:first-child { color: #b43a3a; } /* 일요일 빨간색 */
+    .cal-header div:first-child { color: #b43a3a; } 
     
     .cal-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 8px 0;
-      font-size: 15px;
+      gap: 10px 0; /* 세로 간격 살짝 넓힘 */
+      font-size: 15.5px;
       color: #333;
     }
     
@@ -97,8 +81,8 @@
       font-family: 'Noto Sans KR', sans-serif;
     }
     
-    .cal-day.empty { visibility: hidden; } /* 빈 날짜 숨김 */
-    .cal-day.sun { color: #b43a3a; } /* 일요일 빨간색 */
+    .cal-day.empty { visibility: hidden; } 
+    .cal-day.sun { color: #b43a3a; } 
     
     /* 23일 강조 포인트 */
     .cal-day.d-day {
@@ -109,9 +93,9 @@
       box-shadow: 0 4px 10px rgba(140, 91, 91, 0.3);
     }
     
-   /* 달력 하단 텍스트 가독성 극대화 */
+    /* 달력 하단 텍스트 */
     .cal-footer {
-      margin-top: 40px;
+      margin-top: 45px;
       line-height: 1.5;
     }
     .cal-footer .d-date {
@@ -134,7 +118,7 @@
       line-height: 1.6;
       word-break: keep-all;
     }
-
+    
 /* 위에서 여기까지가 버전 수정한 거 */
     
     :root {
@@ -371,10 +355,6 @@
 <section class="calendar-section fade-in">
       <div class="watermark-05">05</div>
 
-      <div class="we-are-getting-married">
-        We are<br>getting married
-      </div>
-
       <div class="calendar-wrapper">
         <div class="cal-header">
           <div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
@@ -391,11 +371,13 @@
           <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div>
           <div class="cal-day sun">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
           <div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div>
+          
           <div class="cal-day d-day">23</div>
+          
           <div class="cal-day sun">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
           <div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
           <div class="cal-day sun">31</div>
-   </div>
+        </div>
         
         <div class="cal-footer">
           <div class="d-date">2026년 5월 23일 토요일</div>
@@ -405,6 +387,7 @@
         <div class="cal-extra-info">
           예식장 입장은 <b>오후 5시 45분</b>부터,<br>식사는 <b>오후 6시부터 8시</b>까지 하실 수 있습니다.
         </div>
+        
         <div style="margin-top: 25px;">
           <a id="gcalLink" class="btn" target="_blank" rel="noopener noreferrer" style="max-width: 260px; margin: 0 auto;">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22C17.5 22 22 17.5 22 12C22 11.1 21.9 10.2 21.7 9.4H12V13.5H17.7C17.5 14.9 16.6 16.1 15.3 17C14.4 17.6 13.2 18 12 18C8.7 18 6 15.3 6 12C6 8.7 8.7 6 12 6C13.6 6 15 6.6 16.1 7.6L19 4.8C17.2 3.1 14.8 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"></path></svg>
@@ -413,6 +396,8 @@
         </div>
       </div>
     </section>
+
+    
     <section class="info-section fade-in" style="padding-top: 40px;">
       <span class="section-label-ko">예식 장소</span>
       
