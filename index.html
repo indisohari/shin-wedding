@@ -454,7 +454,7 @@
 감사합니다.</div>
     </section>
 
-    <section class="gallery-section fade-in">
+<section class="gallery-section fade-in">
       <span class="section-label-ko" style="margin-bottom: 10px;">웨딩 사진...</span>
       <h2 class="font-serif" style="font-size: 23px; margin-bottom: 25px; font-weight: 700; color: #111; line-height: 1.4;">한 번은 해도,<br>두 번은 못할 촬영</h2>
 
@@ -470,11 +470,20 @@
         <img src="9.jpg" alt="웨딩 사진 9" data-fancybox="gallery" class="gallery-img" loading="lazy">
       </div>
 
+      <div style="display: none;">
+        <img src="10.jpg" data-fancybox="gallery">
+        <img src="11.jpg" data-fancybox="gallery">
+        <img src="12.jpg" data-fancybox="gallery">
+        <img src="13.jpg" data-fancybox="gallery">
+        <img src="14.jpg" data-fancybox="gallery">
+        <img src="15.jpg" data-fancybox="gallery">
+      </div>
+
       <div style="text-align: center;">
-        <a href="https://photos.app.goo.gl/mJmxhc6hSy7y4ujA9" target="_blank" rel="noopener noreferrer" class="btn-gallery-more">
+        <button type="button" class="btn-gallery-more" onclick="Fancybox.show([{src: '10.jpg', type: 'image'}, {src: '11.jpg', type: 'image'}, {src: '12.jpg', type: 'image'}, {src: '13.jpg', type: 'image'}, {src: '14.jpg', type: 'image'}, {src: '15.jpg', type: 'image'}]);">
           더 많은 사진 보기
           <svg aria-hidden="true" viewBox="0 0 24 24" style="width: 14px; height: 14px; margin-left: 6px; stroke: #666; fill:none; stroke-width:2;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        </a>
+        </button>
       </div>
     </section>
 
