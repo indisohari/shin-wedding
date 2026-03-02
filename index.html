@@ -745,7 +745,7 @@ if (nameInput) {
     // 갤러리
     Fancybox.bind('[data-fancybox="gallery"]', {
       Hash: false,
-      Thumbs: false,
+      Thumbs: {autostart: true},
       Toolbar: { display: { left: [], middle: [], right: ["close"] } },
       Images: { zoom: false }
     });
